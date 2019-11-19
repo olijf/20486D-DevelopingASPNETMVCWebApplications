@@ -1,4 +1,4 @@
-﻿
+﻿@model ButterfliesShop.Models.IndexViewModel
 @{
     Layout = null;
 }
@@ -12,5 +12,63 @@
     <link type="text/css" rel="stylesheet" href="~/css/butterflies-shop-styles.css" />
 </head>
 <body>
+    <div class="container">
+        <h1 class="main-title">ButterfliesShop</h1>
+        <p class="into">Welcome to our Web Store, Enjoy a wide variety of Butterflies</p>
+        <p class="into">Our Butterflies in the Shop</p>
+        <button class="pic-upload-input" type="button" onclick="location.href='@Url.Action("Create","Butterfly")'">Add Butterflies</button>
+        <div class="img-container">
+            @*@foreach (var item in Model.Butterflies)
+        {
+            <div class="photo-index-card">
+                <p>@item.CommonName</p>
+                <p>@item.ButterflyFamily</p>
+                <p>@item.Quantity</p>
+                <p>@item.CreatedDate</p>
+            </div>
+        }*@
+            @foreach (var item in Model.Butterflies)
+            {
+                <h3 class="display-picture-title">@Html.DisplayFor(modelItem => item.CommonName)</h3>
+                @if (item.ImageName != null)
+                {
+                    <div class="photo-display"><img class="photo-display-img" src="@Url.Action(nameof(ButterfliesShop.Controllers.ButterflyController.GetImage), nameof(ButterfliesShop.Models.Butterfly), new { Id= item.Id})" /></div>
+                }
+                <div>
+                    <p class="display-label">
+                        @Html.DisplayNameFor(model => item.ButterflyFamily)
+                    </p>
+                    <br />
+                    <p class="display-field">
+                        @Html.DisplayFor(model => item.ButterflyFamily)
+                    </p>
+                </div>
+                <div class="display-info">
+                    <p class="display-label">
+                        @Html.DisplayNameFor(model => item.Characteristics)
+                    </p>
+                    <p class="display-field">
+                        @Html.DisplayFor(model => item.Characteristics)
+                    </p>
+                </div>
+                <div>
+                    <p class="display-label">
+                        @Html.DisplayNameFor(model => item.Quantity)
+                    </p>
+                    <p class="display-field">
+                        @Html.DisplayFor(model => item.Quantity)
+                    </p>
+                </div>
+                <div>
+                    <p class="display-label">
+                        @Html.DisplayNameFor(model => item.CreatedDate)
+                    </p>
+                    <p class="display-field">
+                        @Html.DisplayFor(model => item.CreatedDate)
+                    </p>
+                </div>
+            }
+        </div>foreachforeach
+    </div>
 </body>
 </html>
