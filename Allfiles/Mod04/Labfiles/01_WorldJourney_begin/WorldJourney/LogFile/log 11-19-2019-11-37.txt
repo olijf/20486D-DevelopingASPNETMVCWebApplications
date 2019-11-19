@@ -1,0 +1,1 @@
+The action Index in City controller has the following viewData : Search City, event fired: OnResultExecuted
