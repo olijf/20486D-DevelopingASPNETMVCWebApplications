@@ -12,9 +12,6 @@ namespace CitiesWebsite.Models
         public string TimeZone { get; }
         public CityPopulation Population { get; }
 
-        public City(string country, string cityName, string timeZone, CityPopulation population)
-        {
-
-        }
+        public City(string country, string cityName, string timeZone, CityPopulation population) => (Country, Name, TimeZone, Population) = (country, cityName, timeZone, population);
     }
 }

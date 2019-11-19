@@ -12,9 +12,6 @@ namespace CitiesWebsite.Models
         public int Urban { get; }
         public int Metro { get; }
 
-        public CityPopulation(int year, int city, int urban, int metro)
-        {
-
-        }
+        public CityPopulation(int year, int city, int urban, int metro) => (Year, City, Urban, Metro) = (year, city, urban, metro);
     }
 }
